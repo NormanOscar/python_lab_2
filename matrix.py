@@ -1,3 +1,5 @@
+import math
+
 def transpose (matrix):
     new_matrix = []
     if len(matrix) != 0:
@@ -15,7 +17,7 @@ def powers (matrix, start, end):
     for i in range(len(matrix)):
         new_matrix.append([])
         for j in range(start, end + 1):
-            new_matrix[i].append(matrix[i]**j)
+            new_matrix[i].append(math.pow(matrix[i], j))
     return new_matrix
 
 def matmul (matrix1, matrix2):
@@ -41,4 +43,16 @@ def invert (matrix):
 
     return new_matrix
 
-def
+def loadtxt (file):
+    new_matrix = []
+    inp_file = open(file)
+
+    for line in inp_file:
+        new_matrix.append([])
+        stripped_line = line.strip()
+        splitted_line = stripped_line.split()
+        for num in splitted_line:
+            new_matrix[-1].append(float(num))
+
+    inp_file.close()
+    return new_matrix
