@@ -2,6 +2,7 @@ from matrix import *
 import matplotlib.pyplot as plt
 import sys
 
+# Runs the program
 def main ():
     measurements = loadtxt(sys.argv[1])
     transposed = transpose(measurements)
@@ -12,10 +13,12 @@ def main ():
     Xp = powers(x, 0, 1)
     Yp = powers(y, 1, 1)
     Xpt = transpose(Xp)
-
+    
+    # Calculate variables for prediction
     [[b], [m]] = matmul(invert(matmul(Xpt, Xp)), matmul(Xpt, Yp))
 
     y2 = []
+    # Calculate the y-axis
     for i in range(len(x)):
         y2.append(b + m * x[i])
 
